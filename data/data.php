@@ -5,7 +5,7 @@ $queryParams = [
    'collection' => 'kmdb_new2',
    'nation' => '대한민국',
    'ServiceKey' => '03J9R016L9J16J896G0N',
-   'val001' => '2018',
+   'val001' => '2022',
    'val002' => '01',
 ];
 

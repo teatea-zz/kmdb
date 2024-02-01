@@ -9,12 +9,21 @@ async function getRequest(url) {
 }
 
 async function getMovies() {
-  const url = `/kmdb/data/data.php`;
+  const url = `https://yts.mx/api/v2/list_movies.json?limit=5&order_by=asc`;
 
   try {
     // 데이터 요청 및 응답 시도 : 성공일 경우 첫번째 코드 블럭으로 이동
     const data = await getRequest(url);
-    console.log(data);
+    const movieWrapper = document.querySelector('.imgs');
+    console.log(data.data.movies);
+
+    const movies = data.data.movies;
+
+    movies.forEach((movie) => {
+      const imgEl = `<img src=${movie.medium_cover_image}>`;
+
+      movieWrapper.insertAdjacentHTML('beforeend', imgEl);
+    });
   } catch (error) {
     //실패할 경우 두번째 코드 블럭으로 이동
     console.log('Error : ', error);
